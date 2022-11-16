@@ -1,32 +1,38 @@
-// 1st draft
-function luhnAlgorithm(number) {
-  let numArray = number.split('');
-  let intArray = numArray.map(function(element) {
-    return parseInt(element);
-  });
-  let doubleEveryOther = [];
-  for (let i = 1; i < intArray.length; i +=2) {
-    doubleEveryOther.push(intArray[i] * 2);
-  };
-
-console.log(doubleEveryOther);
-}
 
 // 2nd draft
-function luhnAlgorithm(number) {
+function doubleEveryOther(number) {
   let numArray = number.split('');
   let intArray = numArray.map(function(element) {
     return parseInt(element);
   });
-  let doubleEveryOther = [];
+  let doubleNum = [];
   for (let i = 0; i < intArray.length; i +=1) {
-    if (i % 2 === 0 ) {
-      doubleEveryOther.push(intArray[i] * 2);
+    if (i % 2 !== 0 ) {
+      doubleNum.push(intArray[i] * 2);
     }
     else {
-      doubleEveryOther.push(intArray[i]);
+      doubleNum.push(intArray[i]);
     }
   };
+console.log(doubleNum);
+}
 
-console.log(doubleEveryOther);
+// separate the double-digit numbers
+function separateDoubleDigits(array) {
+  stringOutput = array.join('');
+  let numArray = stringOutput.split('');
+  let intArray = numArray.map(function(element) {
+    return parseInt(element);
+  });
+  return intArray;
+}
+
+// get sum of all numbers in the array
+function sumOfElements(array) {
+  let sum = 0;
+  array.forEach(function(element) {
+    sum += element; 
+    return sum;
+  });
+  console.log(sum);
 }
