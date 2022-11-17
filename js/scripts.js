@@ -14,7 +14,7 @@ function doubleEveryOther(number) {
       doubleNum.push(intArray[i]);
     }
   };
-console.log(doubleNum);
+return doubleNum;
 }
 
 // separate the double-digit numbers
@@ -60,3 +60,23 @@ function validate(number) {
     return 'Discover';
   }
 }
+
+function handleFormSubmission(e) {
+  e.preventDefault();
+  
+  const cardNumber = document.getElementById('userInput').value;
+  const doubleEveryOther = doubleEveryOther(cardNumber);
+  const separateDoubleDigits = separateDoubleDigits(doubleEveryOther);
+  const sumOfElements = sumOfElements(separateDoubleDigits);
+  const validate = validate(cardNumber);
+
+  const form = document.getElementById('form');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  p1.append(validate);
+  p2.append(sumOfElements);
+  form.after(p1);
+  p1.after(p2);
+}
+
+window.addEventListener('submit', handleFormSubmission);
