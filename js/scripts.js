@@ -2,12 +2,12 @@
 // 2nd draft
 function doubleEveryOther(number) {
   let numArray = number.split('');
-  let intArray = numArray.map(function(element) {
+  let intArray = numArray.reverse().map(function(element) {
     return parseInt(element);
   });
   let doubleNum = [];
   for (let i = 0; i < intArray.length; i +=1) {
-    if (i % 2 !== 0 ) {
+    if (i % 2 === 0 ) {
       doubleNum.push(intArray[i] * 2);
     }
     else {
@@ -34,5 +34,15 @@ function sumOfElements(array) {
     sum += element; 
     return sum;
   });
-  console.log(sum);
+  if (sum % 10 === 0) {
+    return 'This is a valid credit card number.';
+  }
+  else {
+    return 'This is not a valid credit card number.';
+  }
+}
+
+// validate first digits + length of credit num
+function validate(number) {
+  
 }
