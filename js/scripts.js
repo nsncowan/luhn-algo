@@ -59,24 +59,28 @@ function validate(number) {
   else if (number.charAt(0) === '6') {
     return 'Discover';
   }
+  else {
+    return "I don't recognize this kind of card.";
+  }
 }
 
 function handleFormSubmission(e) {
   e.preventDefault();
-  
-  const cardNumber = document.getElementById('userInput').value;
-  const doubleEveryOther = doubleEveryOther(cardNumber);
-  const separateDoubleDigits = separateDoubleDigits(doubleEveryOther);
-  const sumOfElements = sumOfElements(separateDoubleDigits);
-  const validate = validate(cardNumber);
-
   const form = document.getElementById('form');
   const p1 = document.createElement('p');
   const p2 = document.createElement('p');
-  p1.append(validate);
-  p2.append(sumOfElements);
+
+  const cardNumber = document.getElementById('userInput').value;
+  const double = doubleEveryOther(cardNumber);
+  const separate = separateDoubleDigits(double);
+  const sum = sumOfElements(separate);
+  const checkNum = validate(cardNumber);
+
+  p1.append(checkNum);
+  p2.append(sum);
   form.after(p1);
   p1.after(p2);
+  document.getElementById('form').reset();
 }
 
 window.addEventListener('submit', handleFormSubmission);
