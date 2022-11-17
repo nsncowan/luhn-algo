@@ -21,21 +21,21 @@ expected output = [4,1,2,0,8,6]
 
 describe: validate(number);
 
-test: 
-code:
-expected output: 
+test: "return 'American Express' if the number begins with '34' or '37'
+code: validate('3478845332221546')
+expected output: 'American Express'
 
-test:
-code:
-expected output: 
+test: return 'Visa' if the num begins with '4';
+code: validate('40478845332221546')
+expected output: 'Visa'
 
-test:
-code:
-expected output: 
+test: return 'Mastercard' if the num begins with '5';
+code: validate('5478845332221546')
+expected output: 'Mastercard'
 
-test:
-code:
-expected output: 
+test: return 'Discover' if the num begins with '6';
+code: validate('678845332221546')
+expected output: 'Discover'
 
 test:
 code:

@@ -44,5 +44,19 @@ function sumOfElements(array) {
 
 // validate first digits + length of credit num
 function validate(number) {
-  
+  if (number.charAt(0) === '3' && number.charAt(1) === '4') {
+    return 'American Express';
+  }
+  else if (number.charAt(0) === '3' && number.charAt(1) === '7') {
+    return 'American Express';
+  }
+  else if (number.charAt(0) === '4') {
+    return 'Visa';
+  }
+  else if (number.charAt(0) === '5') {
+    return 'Mastercard';
+  }
+  else if (number.charAt(0) === '6') {
+    return 'Discover';
+  }
 }
